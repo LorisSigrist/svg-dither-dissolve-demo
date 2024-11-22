@@ -5,7 +5,7 @@
 
   let { onclose } = $props<{ onclose: () => void }>();
 
-  const duration = 500;
+  const duration = 300;
 </script>
 
 <svelte:window
@@ -23,8 +23,7 @@
   <div
     class="fixed inset-0 bg-gray-500/75 transition-opacity"
     aria-hidden="true"
-    in:fade={{ duration: 200, easing: cubicIn }}
-    out:dissolve={{ duration: duration }}
+    transition:fade={{ duration: 200, easing: cubicIn }}
   ></div>
 
   <div class="fixed inset-0 z-10 w-screen overflow-y-auto">

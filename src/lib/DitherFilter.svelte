@@ -1,5 +1,5 @@
 <script lang="ts">
-  import bayer from "./bayer_map.png";
+  import blue from "./blue.png";
 
   let {
     duration,
@@ -23,9 +23,9 @@
     <filter {id} x="0" y="0" width="100%" height="100%">
       <feImage
         result="single-bayer"
-        href={bayer}
-        width={tilesize}
-        height={tilesize}
+        href={blue}
+        width={470}
+        height={470}
         image-rendering="pixelated"
       />
       <feTile
