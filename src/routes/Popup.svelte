@@ -1,11 +1,9 @@
 <script lang="ts">
   import { cubicIn } from "svelte/easing";
-  import { fade, scale } from "svelte/transition";
+  import { fade } from "svelte/transition";
   import { dissolve } from "$lib";
-
   let { onclose } = $props<{ onclose: () => void }>();
-
-  const duration = 300;
+  const duration = 200;
 </script>
 
 <svelte:window
@@ -23,7 +21,7 @@
   <div
     class="fixed inset-0 bg-gray-500/75 transition-opacity"
     aria-hidden="true"
-    transition:fade={{ duration: 200, easing: cubicIn }}
+    transition:fade={{ duration }}
   ></div>
 
   <div class="fixed inset-0 z-10 w-screen overflow-y-auto">
@@ -31,9 +29,8 @@
       class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0"
     >
       <div
-        in:scale={{ duration: 300, easing: cubicIn, start: 0.95, opacity: 0 }}
-        out:dissolve={{ duration: duration }}
         class="relative transform overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-sm sm:p-6"
+        transition:dissolve={{ duration, pattern: "blue-noise" }}
       >
         <div>
           <div
